@@ -1,4 +1,3 @@
 My formal web project
 Hello from dev1
 Hello from dev2
-Hello from new commit
