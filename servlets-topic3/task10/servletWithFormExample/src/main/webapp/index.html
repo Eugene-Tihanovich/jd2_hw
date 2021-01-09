@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+
+<h1>New user form</h1>
+<p>Enter user data</p>
+
+<form action="user" method="post">
+    <label for="name">Username:</label><br>
+    <input type="text" id="name" placeholder="Ivan" autofocus required name="user.name" value=""><br>
+    <label for="phoneNumber">Phone number:</label><br>
+    <input type="tel" id="phoneNumber" placeholder="+375-XX-XXX-XX-XX" autofocus required name="user.phoneNumber" value=""><br>
+    <label for="email">User email:</label><br>
+    <input type="email" id="email" placeholder="youremail@mail.ru" autofocus required name="user.email" value=""><br>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
