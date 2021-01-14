@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="tihanovich">
+        <sql>
+            create database if not exists listexpenses;
+        </sql>
+    </changeSet>
+
+    <changeSet id="2" author="tihanovich">
+        <sql>
+            create table if not exists expenses (
+            num int not null primary key,
+            paydate date not null,
+            receiver int not null,
+            value dec not null
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="3" author="tihanovich">
+        <sql>
+            create table if not exists receivers (
+            num int not null primary key,
+            name varchar(255) not null
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="tihanovich">
+        <sql>
+            insert into expenses(num, paydate, receiver, value) values(2, '2011-5-10', 2, 94200.0);
+            insert into expenses(num, paydate, receiver, value) values(3, '2011-5-11', 3, 10000.0);
+            insert into expenses(num, paydate, receiver, value) values(4, '2011-5-11', 2, 12950.0);
+            insert into expenses(num, paydate, receiver, value) values(5, '2020-12-29', 2, 50000.0);
+            insert into expenses(num, paydate, receiver, value) values(6, '2020-12-29', 3, 12950.0);
+
+        </sql>
+    </changeSet>
+
+    <changeSet id="5" author="tihanovich">
+        <sql>
+            insert into receivers(num, name) values(1,'Internet-provider "Solo"');
+            insert into receivers(num, name) values(2,'Hypermarket "Korona"');
+            insert into receivers(num, name) values(3,'MTS');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
