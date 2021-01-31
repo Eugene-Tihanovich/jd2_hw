@@ -1,6 +1,7 @@
 package it.academy.dao;
 
 import it.academy.model.Person;
+import it.academy.model.Pet;
 import it.academy.util.HibernateUtil;
 import org.hibernate.FlushMode;
 import org.hibernate.Session;
@@ -53,5 +54,21 @@ public class DaoImp implements Dao {
         }
         session.close();
         return person;
+    }
+
+    @Override
+    public void savePet(Pet pet) {
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.save(pet);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
     }
 }

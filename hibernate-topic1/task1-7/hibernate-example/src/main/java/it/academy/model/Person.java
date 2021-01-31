@@ -1,6 +1,7 @@
 package it.academy.model;
 
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +15,8 @@ import javax.persistence.Id;
 public class Person {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "increment-generator")
+    @GenericGenerator(name = "increment-generator", strategy = "increment")
     private Integer id;
 
     @NonNull
